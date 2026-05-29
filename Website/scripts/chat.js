@@ -38,7 +38,7 @@ async function initSession() {
   // accessToken stays in Apex (Platform Cache) — never stored here
   sessionId  = data.sessionId;
   sequenceId = 1;
-  appendMessage('agent', 'Hi! I\'m the Asymbl Agent. How can I help you today?');
+  appendMessage('agent', 'Hi! I\'m Finn, Asymbl\'s AI sales assistant, here to help with questions, product information, or scheduling time with a human expert.');
 }
 
 // ── Send message ──────────────────────────────────────────────────────────
@@ -95,6 +95,14 @@ async function endSession() {
 function appendMessage(role, text, modifier) {
   const wrap   = document.createElement('div');
   wrap.className = 'message ' + role + (modifier ? ' ' + modifier : '');
+
+  if (role === 'agent') {
+    const avatar = document.createElement('img');
+    avatar.src = 'images/Finn_Icon.jpg';
+    avatar.alt = 'Finn';
+    avatar.className = 'msg-avatar';
+    wrap.appendChild(avatar);
+  }
 
   const bubble = document.createElement('div');
   bubble.className = 'bubble';

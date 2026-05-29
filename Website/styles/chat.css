@@ -7,20 +7,19 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  background: transparent;
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.40);
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 #chat-toggle:hover {
   transform: scale(1.08);
-  box-shadow: 0 6px 28px rgba(79, 70, 229, 0.55);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.35);
 }
-#chat-toggle svg { width: 26px; height: 26px; fill: #fff; }
+#chat-toggle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 
 /* ── Chat window ── */
 #chat-window {
@@ -65,13 +64,14 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0ab4d8, #4f46e5);
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  color: #fff;
+  overflow: hidden;
+  flex-shrink: 0;
 }
+.chat-avatar img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
 .chat-name   { font-size: 0.9rem; font-weight: 600; color: #fff; }
 .chat-status {
   font-size: 0.75rem;
@@ -117,7 +117,8 @@
 
 .message { display: flex; max-width: 85%; }
 .message.user   { align-self: flex-end;   flex-direction: row-reverse; }
-.message.agent  { align-self: flex-start; }
+.message.agent  { align-self: flex-start; flex-direction: row; align-items: flex-end; gap: 6px; }
+.msg-avatar { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .message.status { align-self: center; opacity: 0.7; font-size: 0.8rem; }
 .message.status .bubble {
   background: rgba(26,39,68,0.06);
