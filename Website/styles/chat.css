@@ -27,9 +27,9 @@
   bottom: 96px;
   right: 28px;
   z-index: 199;
-  width: 380px;
+  width: 390px;
   max-width: calc(100vw - 40px);
-  height: 560px;
+  height: 620px;
   max-height: calc(100vh - 120px);
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -211,3 +211,21 @@
 #chat-send:hover   { background: #0891b2; transform: scale(1.05); }
 #chat-send:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 #chat-send svg { width: 18px; height: 18px; fill: #fff; }
+
+/* ── Powered by footer ── */
+.chat-powered-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-top: 1px solid #e5e7eb;
+  background: #ffffff;
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  color: #6b7280;
+}
+.chat-powered-by img {
+  height: 16px;
+  width: auto;
+}
