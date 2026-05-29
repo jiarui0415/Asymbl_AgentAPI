@@ -2,7 +2,7 @@
 // After deploying AsymblAgentProxy to the FDE sandbox and setting up a Site,
 // replace this with the Site guest REST endpoint (NOT the My Domain URL).
 // Example: 'https://asymbl-dev-ed.my.site.com/services/apexrest/agentforce/v1/chat'
-const SF_PROXY_URL = 'https://asymbl-mo--fde.sandbox.my.site.com/AgentProxy/services/apexrest/agentforce/v1/chat';
+const SF_PROXY_URL = 'https://asymbl-mo--fde.sandbox.my.salesforce.com/AgentProxyAPI/services/apexrest/agentforce/v1/chat';
 
 // ── State ─────────────────────────────────────────────────────────────────
 let sessionId  = null;
