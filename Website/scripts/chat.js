@@ -64,7 +64,9 @@ async function sendMessage() {
       sequenceId
     });
     sequenceId++;
-    appendMessage('agent', data.reply || '(no reply)');
+    const reply = data.reply || '(no reply)';
+    const replyWrap = appendMessage('agent', '');
+    await typewriter(replyWrap.querySelector('.bubble'), reply);
   } catch (err) {
     removeElement(loadingBubble);
     appendMessage('agent', 'Sorry, something went wrong. Please try again.', 'error');
@@ -112,6 +114,20 @@ function appendMessage(role, text, modifier) {
   chatMessages.appendChild(wrap);
   chatMessages.scrollTop = chatMessages.scrollHeight;
   return wrap;
+}
+
+function typewriter(bubble, text, speed = 18) {
+  return new Promise(resolve => {
+    let i = 0;
+    bubble.classList.add('streaming');
+    const tick = () => {
+      bubble.textContent = text.slice(0, ++i);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      if (i < text.length) setTimeout(tick, speed);
+      else { bubble.classList.remove('streaming'); resolve(); }
+    };
+    tick();
+  });
 }
 
 function removeByClass(cls) {
